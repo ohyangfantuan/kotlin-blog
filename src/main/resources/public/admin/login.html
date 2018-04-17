@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<form id="login" method="post" action="/admin/login">
+    username:<input type="text" name="username"/><br/>
+    password:<input type="password" name="password"/><br/>
+    <button id="submit" type="button">login</button>
+    <button type="reset">reset</button>
+</form>
+
+</body>
+<script>
+    $("#submit").click(() => {
+        $.post("login", $("#login").serialize(), (result) => {
+            switch (result.status) {
+                case 200:
+                    location.href="main.html";
+                    return;
+                default:
+                    alert(result.message);
+            }
+        },"json");
+    });
+</script>
+</html>
