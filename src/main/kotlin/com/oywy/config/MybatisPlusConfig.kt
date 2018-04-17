@@ -10,15 +10,4 @@ import org.springframework.context.annotation.Configuration
  */
 @Configuration
 @MapperScan("com.oywy.mapper")
-class MybatisPlusConfig {
-    /**
-     * 分页插件
-     *
-     * @return
-     */
-    @Bean
-    fun paginationInterceptor(): PaginationInterceptor {
-        return PaginationInterceptor()
-    }
-
-}
+class MybatisPlusConfig

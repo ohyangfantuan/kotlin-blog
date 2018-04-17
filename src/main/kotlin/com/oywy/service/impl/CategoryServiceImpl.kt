@@ -4,10 +4,10 @@ import cn.hutool.core.util.ObjectUtil
 import com.baomidou.mybatisplus.mapper.EntityWrapper
 import com.oywy.constant.OperateFlag
 import com.oywy.constant.RecordStatus
-import com.oywy.web.form.CategoryForm
 import com.oywy.entity.Category
 import com.oywy.mapper.CategoryMapper
 import com.oywy.service.CategoryService
+import com.oywy.web.form.CategoryForm
 import org.springframework.stereotype.Service
 import java.util.*
 import javax.servlet.http.HttpSession
@@ -18,6 +18,10 @@ import javax.servlet.http.HttpSession
  */
 @Service
 class CategoryServiceImpl(val categoryMapper: CategoryMapper, val httpSession: HttpSession) : CategoryService {
+    override fun get(categoryId: Long): Category {
+        return categoryMapper.selectById(categoryId)
+    }
+
     override fun list(pid: Long): List<Category> {
         return categoryMapper.selectList(EntityWrapper<Category>().eq("pid", pid))
     }
