@@ -1,6 +1,7 @@
 package com.oywy.service
 
 import com.oywy.entity.Article
+import com.oywy.web.form.ArticleForm
 
 /**
  * 文章service接口
@@ -8,7 +9,7 @@ import com.oywy.entity.Article
  */
 interface ArticleService {
     fun get(articleId: Long): Article
-    fun list(userId:Long): List<Article>
-    fun save(article: Article): Boolean
-    fun remove(articleId:Long): Boolean
+    fun list(userId: Long): List<Article>
+    fun save(articleForm: ArticleForm): Boolean
+    fun remove(articleId: Long): Boolean
 }

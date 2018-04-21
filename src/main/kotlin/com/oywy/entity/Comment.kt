@@ -8,15 +8,13 @@ import java.util.*
  */
 data class Comment(
         //文章
-        var article: Article?,
+        var articleId: Long? = null,
         //用户
-        var user: User?,
+        var userId: Long? = null,
         //父评论
-        var parentComment: Comment?,
-        //子评论
-        var childrenComment: List<Comment>?,
+        var pid: Long? = null,
         //内容
-        var content: String?,
+        var content: String? = null,
         //标识
         var id: Long? = null,
         //注释
