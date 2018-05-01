@@ -33,3 +33,4 @@ data class Permission(
         var operateFlag: Int? = null
 )
 class test
+class testMaser
