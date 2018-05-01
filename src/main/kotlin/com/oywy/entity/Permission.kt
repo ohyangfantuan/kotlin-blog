@@ -8,17 +8,13 @@ import java.util.*
  */
 data class Permission(
         //父权限
-        var parentPermission: Permission?,
-        //子权限
-        var childrenPermission: List<Permission>?,
+        var parentId: Long? = null,
         //权限名
-        var name: String?,
+        var name: String? = null,
         //菜单标识
-        var menu: Int?,
+        var menu: Int? = null,
         //统一资源标识符
-        var uri: String?,
-        //角色集
-        var roleList: List<Role>?,
+        var uri: String? = null,
         //标识
         var id: Long? = null,
         //注释
