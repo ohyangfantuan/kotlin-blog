@@ -3,9 +3,8 @@ package com.oywy.web.resource
 import cn.hutool.core.collection.CollUtil
 import cn.hutool.core.util.ObjectUtil
 import cn.hutool.http.HttpStatus
-import com.oywy.entity.Article
 import com.oywy.service.ArticleService
-import com.oywy.util.ApiResult
+import com.oywy.common.ApiResult
 import com.oywy.web.form.ArticleForm
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*

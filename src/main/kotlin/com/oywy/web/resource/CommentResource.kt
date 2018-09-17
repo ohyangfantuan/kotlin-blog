@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil
 import cn.hutool.core.util.ObjectUtil
 import cn.hutool.http.HttpStatus
 import com.oywy.service.CommentService
-import com.oywy.util.ApiResult
+import com.oywy.common.ApiResult
 import com.oywy.web.form.CommentForm
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult

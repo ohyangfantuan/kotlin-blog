@@ -32,5 +32,4 @@ data class Permission(
         //操作标识
         var operateFlag: Int? = null
 )
-class test
-class testMaser
+

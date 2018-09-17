@@ -9,6 +9,8 @@ import java.util.*
 data class User(
         //用户名
         var name: String? = null,
+        //昵称
+        var nickname: String? = null,
         //密码
         var pwd: String? = null,
 //        //文章集
