@@ -3,11 +3,9 @@ package com.oywy.web.resource
 import cn.hutool.core.collection.CollUtil
 import cn.hutool.core.util.ObjectUtil
 import cn.hutool.http.HttpStatus
-import com.oywy.service.CategoryService
 import com.oywy.common.ApiResult
+import com.oywy.service.CategoryService
 import com.oywy.web.form.CategoryForm
-import io.swagger.annotations.ApiImplicitParam
-import io.swagger.annotations.ApiOperation
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
@@ -17,12 +15,10 @@ import javax.validation.Valid
  * Created by oywy on 2018/4/16.
  */
 @RestController
-@RequestMapping("/category")
+@RequestMapping("category")
 class CategoryResource(val categoryService: CategoryService) {
 
-    @ApiOperation(value = "获取文章类别列表", notes = "根据父节点id获取文章列表")
-    @ApiImplicitParam(name = "pid", value = "父节点id", required = false, defaultValue = "0", dataType = "Long", paramType = "query")
-    @GetMapping("/list")
+    @GetMapping("{pid}/children")
     fun list(@RequestParam(defaultValue = "0") pid: Long): ApiResult {
         val categoryList = categoryService.list(pid)
         return if (CollUtil.isEmpty(categoryList))

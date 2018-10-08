@@ -1,7 +1,6 @@
 package com.oywy.service.impl
 
 import cn.hutool.core.util.ObjectUtil
-import com.baomidou.mybatisplus.mapper.EntityWrapper
 import com.oywy.constant.OperateFlag
 import com.oywy.constant.RecordStatus
 import com.oywy.entity.Article
@@ -27,9 +26,7 @@ class ArticleServiceImpl(
         return articleMapper.selectById(articleId)
     }
 
-    override fun list(userId: Long): List<Article> {
-        return articleMapper.selectList(EntityWrapper<Article>().eq("user_id", userId))
-    }
+    override fun list(): List<Article> = articleMapper.selectList(null)
 
     override fun save(articleForm: ArticleForm): Boolean {
         //category校验

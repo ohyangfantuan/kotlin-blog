@@ -16,7 +16,6 @@ class AuthInterceptor(
         private val onlyForLogin: List<String> = listOf(Method.DELETE, Method.POST, Method.PUT).map { it.toString() }
 ) : HandlerInterceptor {
 
-    @Throws(Exception::class)
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
         //session
         val session = request.session
@@ -27,11 +26,9 @@ class AuthInterceptor(
         return  method !in onlyForLogin||ObjectUtil.isNotNull(session.getAttribute("userId"))
     }
 
-    @Throws(Exception::class)
     override fun postHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any, modelAndView: ModelAndView?) {
     }
 
-    @Throws(Exception::class)
     override fun afterCompletion(request: HttpServletRequest, response: HttpServletResponse, handler: Any, ex: Exception?) {
 
     }

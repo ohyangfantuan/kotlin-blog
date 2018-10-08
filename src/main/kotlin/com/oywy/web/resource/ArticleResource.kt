@@ -3,8 +3,8 @@ package com.oywy.web.resource
 import cn.hutool.core.collection.CollUtil
 import cn.hutool.core.util.ObjectUtil
 import cn.hutool.http.HttpStatus
-import com.oywy.service.ArticleService
 import com.oywy.common.ApiResult
+import com.oywy.service.ArticleService
 import com.oywy.web.form.ArticleForm
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
@@ -26,9 +26,9 @@ class ArticleResource(val articleService: ArticleService) {
             ApiResult(null, HttpStatus.HTTP_NOT_FOUND, "记录不存在")
     }
 
-    @GetMapping("/list")
-    fun list(@RequestParam(required = true) userId: Long): ApiResult {
-        val categoryList = articleService.list(userId)
+    @GetMapping
+    fun list(): ApiResult {
+        val categoryList = articleService.list()
         return if (CollUtil.isEmpty(categoryList))
             ApiResult(null, HttpStatus.HTTP_NOT_FOUND, "记录不存在")
         else
@@ -36,7 +36,7 @@ class ArticleResource(val articleService: ArticleService) {
     }
 
     @PostMapping("/save")
-    fun save(@Valid articleForm: ArticleForm,bindingResult: BindingResult): ApiResult {
+    fun save(@Valid articleForm: ArticleForm, bindingResult: BindingResult): ApiResult {
         if (bindingResult.hasErrors())
             return ApiResult(null, HttpStatus.HTTP_NOT_FOUND, bindingResult.allErrors[0].defaultMessage.orEmpty())
         val bool = articleService.save(articleForm)

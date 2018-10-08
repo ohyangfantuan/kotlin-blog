@@ -27,7 +27,7 @@ data class Category(
         //状态
         var status: Int? = null,
         //创建时间
-        var creatTime: Date? = null,
+        var createTime: Date? = null,
         //创建人标识
         var creatorId: Long? = null,
         //修改时间

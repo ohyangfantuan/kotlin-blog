@@ -9,7 +9,7 @@ import com.oywy.web.form.ArticleForm
  */
 interface ArticleService {
     fun get(articleId: Long): Article
-    fun list(userId: Long): List<Article>
+    fun list(): List<Article>
     fun save(articleForm: ArticleForm): Boolean
     fun remove(articleId: Long): Boolean
 }

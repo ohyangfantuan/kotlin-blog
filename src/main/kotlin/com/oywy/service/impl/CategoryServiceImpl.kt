@@ -36,7 +36,7 @@ class CategoryServiceImpl(val categoryMapper: CategoryMapper, val httpSession: H
             operatorId = httpSession.getAttribute("userId") as Long
             //!id?新增:更新
             return if (ObjectUtil.isNull(id)) {
-                creatTime = Date()
+                createTime = Date()
                 creatorId = operatorId
                 operateFlag = OperateFlag.CREATE
                 status = RecordStatus.ENABLED
